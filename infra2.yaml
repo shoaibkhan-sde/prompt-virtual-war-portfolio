@@ -1,0 +1,11 @@
+﻿services:
+  - hostname: apigateway
+    type: nodejs@20
+  - hostname: aiworker
+    type: nodejs@20
+  - hostname: appui
+    type: nginx@latest
+  - hostname: postgresdb
+    type: postgresql@16
+  - hostname: valkeybus
+    type: valkey@7.2

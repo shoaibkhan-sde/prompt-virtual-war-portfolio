@@ -1,0 +1,85 @@
+zerops:
+  # =========================================================
+  # 1. MAIN REST API & WEBSOCKET GATEWAY
+  # =========================================================
+  - setup: apigateway
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm run build:shared && npm --workspace=apps/api run build
+      deployFiles:
+        - ./package.json
+        - ./package-lock.json
+        - ./apps/api/dist
+        - ./apps/api/package.json
+        - ./packages/shared/dist
+        - ./packages/shared/package.json
+    run:
+      base: nodejs@20
+      initCommands:
+        - npm install --production
+      ports:
+        - port: 3000
+          httpSupport: true
+      envVariables:
+        NODE_ENV: production
+        PORT: 3000
+        DB_HOST: ${postgresdb_hostname}
+        DB_PORT: ${postgresdb_port}
+        DB_USER: ${postgresdb_user}
+        DB_PASSWORD: ${postgresdb_password}
+        DB_NAME: outage_iq
+        CACHE_HOST: ${valkeybus_hostname}
+        CACHE_PORT: ${valkeybus_port}
+        CACHE_PASSWORD: ${valkeybus_password}
+      start: node ./apps/api/dist/index.js
+
+  # =========================================================
+  # 2. ASYNCHRONOUS BACKGROUND AI WORKER
+  # =========================================================
+  - setup: aiworker
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm run build:shared && npm --workspace=apps/worker run build
+      deployFiles:
+        - ./package.json
+        - ./package-lock.json
+        - ./apps/worker/dist
+        - ./apps/worker/package.json
+        - ./packages/shared/dist
+        - ./packages/shared/package.json
+    run:
+      base: nodejs@20
+      initCommands:
+        - npm install --production
+      envVariables:
+        NODE_ENV: production
+        DB_HOST: ${postgresdb_hostname}
+        DB_PORT: ${postgresdb_port}
+        DB_USER: ${postgresdb_user}
+        DB_PASSWORD: ${postgresdb_password}
+        DB_NAME: outage_iq
+        CACHE_HOST: ${valkeybus_hostname}
+        CACHE_PORT: ${valkeybus_port}
+        CACHE_PASSWORD: ${valkeybus_password}
+        MISTRAL_API_KEY: ${MISTRAL_API_KEY}
+      start: node ./apps/worker/dist/migrate.js && node ./apps/worker/dist/index.js
+
+  # =========================================================
+  # 3. FRONTEND DASHBOARD (REACT + VITE ON NGINX)
+  # =========================================================
+  - setup: appui
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm --workspace=apps/web run build
+      envVariables:
+        VITE_API_URL: ${apigateway_zeropsSubdomain}
+      deployFiles:
+        - ./apps/web/dist/~
+    run:
+      base: nginx@latest

@@ -1,0 +1,13 @@
+﻿project:
+  name: outageiq
+services:
+  - hostname: api-gateway
+    type: nodejs@20
+  - hostname: ai-worker
+    type: nodejs@20
+  - hostname: app-ui
+    type: nginx@latest
+  - hostname: postgres-db
+    type: postgresql@16
+  - hostname: valkey-bus
+    type: valkey@7.2
