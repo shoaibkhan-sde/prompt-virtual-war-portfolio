@@ -1,0 +1,148 @@
+{
+  "zones": {
+    "north-stand": {
+      "zone_id": "north-stand",
+      "name": "North Stand",
+      "capacity": 25000,
+      "latitude": 23.033,
+      "longitude": 72.526,
+      "current_occupancy": 23101
+    },
+    "south-stand": {
+      "zone_id": "south-stand",
+      "name": "South Stand",
+      "capacity": 25000,
+      "latitude": 23.0295,
+      "longitude": 72.526,
+      "current_occupancy": 19240
+    },
+    "east-wing": {
+      "zone_id": "east-wing",
+      "name": "East Stand",
+      "capacity": 20000,
+      "latitude": 23.0312,
+      "longitude": 72.5285,
+      "current_occupancy": 14646
+    },
+    "west-wing": {
+      "zone_id": "west-wing",
+      "name": "West Stand",
+      "capacity": 20000,
+      "latitude": 23.0312,
+      "longitude": 72.5235,
+      "current_occupancy": 10888
+    },
+    "food-court-north": {
+      "zone_id": "food-court-north",
+      "name": "North Food Hub",
+      "capacity": 5000,
+      "latitude": 23.0325,
+      "longitude": 72.5275,
+      "current_occupancy": 4216
+    },
+    "food-court-south": {
+      "zone_id": "food-court-south",
+      "name": "South Food Hub",
+      "capacity": 5000,
+      "latitude": 23.03,
+      "longitude": 72.5245,
+      "current_occupancy": 1824
+    },
+    "vip-lounge": {
+      "zone_id": "vip-lounge",
+      "name": "VIP Lounge",
+      "capacity": 2000,
+      "latitude": 23.0315,
+      "longitude": 72.5255,
+      "current_occupancy": 1394
+    },
+    "parking-a": {
+      "zone_id": "parking-a",
+      "name": "Parking (Zone A)",
+      "capacity": 3000,
+      "latitude": 23.035,
+      "longitude": 72.526,
+      "current_occupancy": 2796
+    }
+  },
+  "gates": {
+    "gate-n1": {
+      "gate_id": "gate-n1",
+      "name": "North Gate 1",
+      "zone": "north-stand",
+      "latitude": 23.0335,
+      "longitude": 72.5265,
+      "capacity": 500,
+      "current_queue": 188,
+      "throughput_rate": 2.5,
+      "is_open": true
+    },
+    "gate-n2": {
+      "gate_id": "gate-n2",
+      "name": "North Gate 2",
+      "zone": "north-stand",
+      "latitude": 23.034,
+      "longitude": 72.527,
+      "capacity": 500,
+      "current_queue": 254,
+      "throughput_rate": 2.0,
+      "is_open": true
+    },
+    "gate-s1": {
+      "gate_id": "gate-s1",
+      "name": "South Gate 1",
+      "zone": "south-stand",
+      "latitude": 23.029,
+      "longitude": 72.5265,
+      "capacity": 600,
+      "current_queue": 266,
+      "throughput_rate": 3.0,
+      "is_open": true
+    },
+    "gate-s2": {
+      "gate_id": "gate-s2",
+      "name": "South Gate 2",
+      "zone": "south-stand",
+      "latitude": 23.0285,
+      "longitude": 72.526,
+      "capacity": 600,
+      "current_queue": 74,
+      "throughput_rate": 2.8,
+      "is_open": true
+    },
+    "gate-e1": {
+      "gate_id": "gate-e1",
+      "name": "East Gate 1",
+      "zone": "east-wing",
+      "latitude": 23.031,
+      "longitude": 72.53,
+      "capacity": 400,
+      "current_queue": 473,
+      "throughput_rate": 2.0,
+      "is_open": true
+    },
+    "gate-w1": {
+      "gate_id": "gate-w1",
+      "name": "West Gate 1",
+      "zone": "west-wing",
+      "latitude": 23.031,
+      "longitude": 72.523,
+      "capacity": 400,
+      "current_queue": 66,
+      "throughput_rate": 1.5,
+      "is_open": true
+    },
+    "gate-vip": {
+      "gate_id": "gate-vip",
+      "name": "VIP Entrance",
+      "zone": "vip-lounge",
+      "latitude": 23.032,
+      "longitude": 72.525,
+      "capacity": 200,
+      "current_queue": 15,
+      "throughput_rate": 1.0,
+      "is_open": true
+    }
+  },
+  "event_phase": "Normal"
+}
