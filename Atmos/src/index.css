@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0B0F0E;
+  --color-surface: #121816;
+  --color-border: #222c29;
+  --color-muted: #97a8a3;
+  --color-accent-teal: #06b6d4;
+  --color-accent-amber: #f59e0b;
+  --color-accent-red: #ef4444;
+  --font-sans: "Outfit", "Inter", "sans-serif";
+  --font-mono: "JetBrains Mono", "monospace";
+}
+
+@layer base {
+  body {
+    @apply bg-background text-[#e2edea] antialiased selection:bg-accent-teal selection:text-background;
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Accessible Focus Indicator */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent-teal ring-offset-2 ring-offset-background;
+  }
+
+  /* Monospace Font Utility for Ledgers & Numbers */
+  .font-tabular {
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* Carbon Ledger Premium Cards */
+  .ledger-card {
+    @apply bg-surface border border-border rounded-xl p-6 transition-all duration-300 relative overflow-hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .ledger-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none;
+  }
+
+  .ledger-card:hover {
+    @apply border-border/80;
+    box-shadow: 0 4px 30px rgba(6, 182, 212, 0.03);
+  }
+
+  /* Input fields styling */
+  .ledger-input {
+    @apply bg-background border border-border rounded-lg px-4 py-2.5 text-white placeholder-muted focus:border-accent-teal transition-colors outline-none w-full;
+  }
+
+  /* Button styling */
+  .ledger-btn-primary {
+    @apply bg-gradient-to-r from-accent-teal to-cyan-600 text-background font-semibold px-5 py-2.5 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2;
+  }
+
+  .ledger-btn-secondary {
+    @apply bg-surface border border-border text-white px-5 py-2.5 rounded-lg hover:bg-border/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-muted/40 transition-colors;
+}
+
+/* Micro-animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hide Recharts responsive container console warnings in React 19 */
+.recharts-responsive-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Prefers-reduced-motion accessibility support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
