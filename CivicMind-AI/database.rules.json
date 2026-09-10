@@ -1,0 +1,33 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+        "settings": {
+          ".validate": "newData.hasChildren(['preferences', 'ai', 'notifications'])"
+        }
+      }
+    },
+    "progress": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+        ".validate": "newData.hasChildren(['stages', 'quizStats', 'updatedAt'])"
+      }
+    },
+    "quizAttempts": {
+      "$id": {
+        ".read": "auth != null && data.child('uid').val() === auth.uid",
+        ".write": "auth != null && newData.child('uid').val() === auth.uid",
+        ".validate": "newData.hasChildren(['uid', 'score', 'answers', 'createdAt'])"
+      }
+    },
+    "aiSessions": {
+      "$id": {
+        ".read": "auth != null && data.child('uid').val() === auth.uid",
+        ".write": "auth != null && newData.child('uid').val() === auth.uid"
+      }
+    }
+  }
+}
