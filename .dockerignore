@@ -1,0 +1,15 @@
+.git
+.gitignore
+node_modules
+backend/venv
+backend/__pycache__
+backend/.pytest_cache
+coverage
+dist
+# .env files allowed for build time embedding of VITE_ variables
+#.env
+#backend/.env
+README.md
+*.log
+.vscode
+.gemini

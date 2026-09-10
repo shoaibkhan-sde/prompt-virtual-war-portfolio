@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.local
+backend/.env
+backend/serviceAccountKey.json
+__pycache__/
+*.pyc
+.pytest_cache/
+coverage/
+.vite/
+*.log
+.DS_Store
