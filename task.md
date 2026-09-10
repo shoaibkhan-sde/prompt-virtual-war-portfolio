@@ -1,0 +1,49 @@
+- [x] Update `backend/requirements.txt` with production dependencies.
+- [x] Create `.dockerignore` to keep image size small.
+- [x] Create Dockerfile (Multi-stage) in the root directory.
+- [x] Prepare `deploy_to_cloud_run.ps1` script for the user.
+- [x] Verify Dockerfile structure and stage handoffs.
+- [x] Refactor `backend/` imports (remove `backend.` prefix).
+- [x] Update `Dockerfile` to use dynamic `$PORT`.
+- [x] Create `backend/services/crowd_service.py` (shared logic).
+- [x] Refactor `backend/api/routes_crowd.py`.
+- [x] Create `backend/services/simulation_service.py` (background thread).
+- [x] Update `backend/app.py` to start the simulation.
+- [x] Fix syntax error in `backend/api/routes_crowd.py`.
+- [x] Update `MatchStrip.jsx` to use dynamic system date.
+- [x] Rebuild 2026 match schedule and fix labelling (`TODAY`).
+- [x] Enhance Result card styling (Winner vs Loser).
+- [x] Optimize Dockerfile (silence warnings, non-root user).
+- [x] Increase Vite chunk limit in `vite.config.js`.
+- [x] Add startup alert to `simulation_service.py`.
+- [x] Add path shim to `backend/app.py` for local execution support.
+- [x] Add `--root-user-action=ignore` to Dockerfile pip commands.
+- [x] Upgrade `simulation_service.py` with Phase Engine for dynamic alerts.
+- [x] Increase alert throughput in `routes_alerts.py`.
+- [x] Remove `match.statusText` from `MatchStrip.jsx`.
+- [x] Lazy-load `MainApp` in `App.jsx` to fix onboarding lag.
+- [x] Memoize `StadiumCard` in `VenueSearchModal.jsx`.
+- [x] Fix key mismatch `waitTime` in `routes_alerts.py`.
+- [x] Add Heartbeat alerts to `simulation_service.py`.
+- [x] Centralize alert logic in `services/alert_service.py`.
+- [x] Migrate alert log storage to Redis (VF_ALERT_LOG).
+- [x] Configure Socket.IO with Redis message broker in `extensions.py`.
+- [x] Refactor `routes_alerts.py` to use Redis-backed service.
+- [x] Implement Redis-backed unique IDs for all alerts.
+- [x] Add 'Moderate Utilization' alerts (50%+ density).
+- [x] Add 'Clear Path' alerts (Wait < 45s) for optimal entry.
+- [x] Lift `useAlerts` state to `MainApp` in `App.jsx` for tab persistence.
+- [x] Remove blocking top-level `await` from `socket.js`.
+- [x] Make Redis Socket.IO broker conditional for local dev.
+- [x] Implement in-memory fallback for alerts (Zero-Blackout logic).
+- [x] Speed up Intelligence heartbeat frequency (every 30s).
+- [x] Increase frontend alert buffer to 30 items in `App.jsx`.
+- [x] Limit live update buffer to exactly 10 alerts (Circular Buffer).
+- [x] Change match day name to 'TOMORROW' on Home cards.
+- [x] Promote 'High' crowd density (80%+) to CRITICAL level.
+- [x] Enforce hard 10-item limit in storage (purge old history).
+- [x] Fix syntax error in MatchStrip.jsx (build fix).
+- [x] Resolve AI Assistant "Silence" bug (apply eventlet patching).
+- [x] Fix AI history persistence (key alignment).
+- [x] Fix "0 Gates" display for VIP Lounge (logic upgrade).
+- [/] Provide final verification walkthrough.

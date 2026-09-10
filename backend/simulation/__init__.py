@@ -1,0 +1,1 @@
+# VenueFlow AI — Simulation module
