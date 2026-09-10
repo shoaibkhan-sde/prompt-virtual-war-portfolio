@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B1315" />
+      <stop offset="50%" stop-color="#112225" />
+      <stop offset="100%" stop-color="#0F2D30" />
+    </linearGradient>
+    
+    <!-- Atmos Logo Gradient -->
+    <linearGradient id="logoGrad" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38F9D7" /> <!-- Neon Mint/Emerald -->
+      <stop offset="50%" stop-color="#4FACFE" /> <!-- Bright Sky Blue -->
+      <stop offset="100%" stop-color="#00F2FE" /> <!-- Electric Cyan -->
+    </linearGradient>
+
+    <!-- Subtle Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circular sleek dark background -->
+  <rect width="48" height="48" rx="12" fill="url(#bgGrad)" />
+  
+  <!-- Outer glowing neon ring -->
+  <rect x="2" y="2" width="44" height="44" rx="10" stroke="url(#logoGrad)" stroke-width="1.5" stroke-opacity="0.25" />
+
+  <!-- Logo Shape: Stylized Leaf / Atmosphere "A" -->
+  <path d="M24 8 
+           C29 16, 37 20, 37 28 
+           C37 35, 31 39, 24 39 
+           C17 39, 11 35, 11 28 
+           C11 20, 19 16, 24 8 Z" 
+        fill="url(#logoGrad)" 
+        filter="url(#glow)" />
+        
+  <!-- Negative space cut to form an "A" / Leaf details -->
+  <path d="M24 15
+           C21.5 19.5, 16.5 21.5, 16.5 27.5
+           C16.5 32, 19.5 34.5, 24 34.5
+           C28.5 34.5, 31.5 32, 31.5 27.5
+           C31.5 21.5, 26.5 19.5, 24 15 Z"
+        fill="#112225" />
+
+  <!-- Leaf center vein -->
+  <path d="M24 18 V33" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" />
+</svg>
