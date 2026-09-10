@@ -1,0 +1,72 @@
+services:
+  # =========================================================
+  # 1. MAIN REST API & WEBSOCKET GATEWAY
+  # =========================================================
+  - setup: api-gateway
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm --workspace=apps/api run build
+      deployFiles:
+        - ./apps/api/dist
+        - ./apps/api/package.json
+        - ./node_modules
+    run:
+      base: nodejs@20
+      ports:
+        - 3000
+      envVariables:
+        NODE_ENV: production
+        PORT: 3000
+        DB_HOST: ${db_hostname}
+        DB_PORT: ${db_port}
+        DB_USER: ${db_user}
+        DB_PASSWORD: ${db_password}
+        DB_NAME: outage_iq
+        CACHE_HOST: ${cache_hostname}
+        CACHE_PORT: ${cache_port}
+      start: node ./apps/api/dist/index.js
+
+  # =========================================================
+  # 2. ASYNCHRONOUS BACKGROUND AI WORKER
+  # =========================================================
+  - setup: ai-worker
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm --workspace=apps/worker run build
+      deployFiles:
+        - ./apps/worker/dist
+        - ./apps/worker/package.json
+        - ./node_modules
+    run:
+      base: nodejs@20
+      envVariables:
+        NODE_ENV: production
+        DB_HOST: ${db_hostname}
+        DB_PORT: ${db_port}
+        DB_USER: ${db_user}
+        DB_PASSWORD: ${db_password}
+        DB_NAME: outage_iq
+        CACHE_HOST: ${cache_hostname}
+        CACHE_PORT: ${cache_port}
+        MISTRAL_API_KEY: ${MISTRAL_API_KEY}
+      start: node ./apps/worker/dist/migrate.js && node ./apps/worker/dist/index.js
+
+  # =========================================================
+  # 3. FRONTEND DASHBOARD (REACT + VITE ON NGINX)
+  # =========================================================
+  - setup: app-ui
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm --workspace=apps/web run build
+      envVariables:
+        VITE_API_URL: ${api-gateway_url}
+      deployFiles:
+        - ./apps/web/dist/~
+    run:
+      base: nginx@latest

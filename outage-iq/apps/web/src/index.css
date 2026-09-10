@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #060911;
+    color: #f1f5f9;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'Fira Code', monospace;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0f19;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+  
+  /* Neon Glows */
+  .glow-red {
+    box-shadow: 0 0 20px -5px rgba(244, 63, 94, 0.4);
+  }
+  .glow-green {
+    box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.4);
+  }
+  .glow-purple {
+    box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4);
+  }
+  .glow-blue {
+    box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.4);
+  }
+
+  /* Scanline Overlay for retro-futuristic radar feel */
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0),
+      rgba(255,255,255,0) 50%,
+      rgba(0, 0, 0, 0.25) 50%,
+      rgba(0, 0, 0, 0.25)
+    );
+    background-size: 100% 4px;
+  }
+
+  /* Pulse Animations */
+  @keyframes pulse-fast {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .animate-pulse-fast {
+    animation: pulse-fast 1s infinite;
+  }
+
+  @keyframes travel {
+    0% { left: 5%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 95%; opacity: 0; }
+  }
+}
