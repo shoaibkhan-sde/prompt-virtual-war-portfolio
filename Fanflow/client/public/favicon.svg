@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="46" fill="#10b981" stroke="#047857" stroke-width="5" />
+  <circle cx="50" cy="50" r="40" fill="#022c22" />
+  
+  <!-- Central pentagon (Emerald) -->
+  <polygon points="50,32 36,42 41,59 59,59 64,42" fill="#10b981" stroke="#022c22" stroke-width="2.5" />
+  
+  <!-- Outer panels (Lime / Emerald variants) -->
+  <!-- Top Panel -->
+  <polygon points="50,32 64,42 75,32 68,14 50,14" fill="#a3e635" stroke="#022c22" stroke-width="2.5" />
+  <polygon points="50,32 36,42 25,32 32,14 50,14" fill="#a3e635" stroke="#022c22" stroke-width="2.5" />
+  
+  <!-- Bottom Panels -->
+  <polygon points="59,59 50,78 32,78 28,60 41,59" fill="#059669" stroke="#022c22" stroke-width="2.5" />
+  <polygon points="59,59 50,78 68,78 72,60 59,59" fill="#059669" stroke="#022c22" stroke-width="2.5" />
+  
+  <!-- Side Panels -->
+  <polygon points="64,42 59,59 72,60 84,48 80,30" fill="#a3e635" stroke="#022c22" stroke-width="2.5" />
+  <polygon points="36,42 41,59 28,60 16,48 20,30" fill="#a3e635" stroke="#022c22" stroke-width="2.5" />
+</svg>

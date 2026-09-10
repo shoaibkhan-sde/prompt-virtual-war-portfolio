@@ -1,0 +1,37 @@
+name: Fanflow Verification Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install --prefix server
+          npm install --prefix client
+
+      - name: Validate TypeScript & Build (Server)
+        run: |
+          npm run build --prefix server
+
+      - name: Validate TypeScript & Build (Client)
+        run: |
+          npm run build --prefix client
