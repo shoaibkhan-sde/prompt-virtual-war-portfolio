@@ -1,0 +1,374 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+    background-color: #F6F1E7;
+    color: #1E1B17;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-heading {
+    font-family: 'Outfit', 'Noto Sans Devanagari', sans-serif;
+  }
+
+  .font-brand {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+
+  .font-brand-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  img,
+  svg,
+  picture,
+  video,
+  canvas,
+  .no-drag {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+
+    -webkit-touch-callout: none !important;
+    touch-action: none !important;
+    pointer-events: none !important;
+  }
+
+  /* Allow clickable images explicit override if designated */
+  img.clickable-image {
+    pointer-events: auto !important;
+  }
+}
+
+/* Custom Vector Mouse Pointer Cursor for Default State */
+body,
+html {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 3l7 18 3.5-7.5L21 10 3 3z' fill='%23FBF8F1' stroke='%231E1B17' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3 3l7 18 3.5-7.5L21 10 3 3z' fill='%23B85C38' opacity='0.3'/%3E%3C/svg%3E") 3 3, auto;
+}
+
+/* Standard OS Finger Pointer Cursor for All Clickable & Interactive Hover States */
+button,
+a,
+select,
+input[type="submit"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+[role="button"],
+label,
+.cursor-pointer,
+[onClick],
+[onclick] {
+  cursor: pointer !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F1E7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Smooth Tab & Section Motion Keyframes */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInSlideUp 250ms ease-out forwards;
+}
+
+/* Target clause highlight for Tap-to-Verify */
+@keyframes warmClausePulse {
+
+  0%,
+  100% {
+    background-color: rgba(184, 92, 56, 0.12);
+    border-color: rgba(184, 92, 56, 0.8);
+  }
+
+  50% {
+    background-color: rgba(184, 92, 56, 0.22);
+    border-color: rgba(184, 92, 56, 1);
+  }
+}
+
+.clause-highlight-active {
+  animation: warmClausePulse 1.8s infinite ease-in-out;
+}
+
+/* 3D Robo Face Animation Keyframes */
+@keyframes roboEyeBlink {
+
+  0%,
+  88%,
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  92%,
+  96% {
+    transform: scaleY(1);
+    opacity: 0.95;
+  }
+}
+
+@keyframes roboSmileBounce {
+
+  0%,
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+
+  30% {
+    transform: scale(1.12) translateY(-6px) rotate(-3deg);
+  }
+
+  60% {
+    transform: scale(1.06) translateY(-2px) rotate(2deg);
+  }
+}
+
+@keyframes roboAntennaGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4), 0 0 24px rgba(56, 189, 248, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.8), 0 0 48px rgba(56, 189, 248, 0.5);
+  }
+}
+
+@keyframes roboJumpAnimation {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(-10px) scale(1.04);
+  }
+
+  45% {
+    transform: translateY(-15px) scale(1.08) rotate(-2deg);
+  }
+
+  65% {
+    transform: translateY(-3px) scale(0.97) rotate(1.5deg);
+  }
+
+  80% {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+.animate-robo-blink {
+  animation: roboEyeBlink 3.8s infinite ease-in-out;
+  transform-origin: center top;
+}
+
+.animate-robo-glow {
+  animation: roboAntennaGlow 3s infinite ease-in-out;
+}
+
+.animate-robo-jump {
+  animation: roboJumpAnimation 2.6s ease-in-out infinite;
+}
+
+.hover-robo-smile:hover {
+  animation: roboSmileBounce 650ms ease-in-out forwards;
+}
+
+/* Cool Built For Everyone Section Animations */
+@keyframes coolHeroFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes textGradientShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-cool-float {
+  animation: coolHeroFloat 4.5s ease-in-out infinite;
+}
+
+.cool-shimmer-title {
+  background: linear-gradient(135deg, #1E1B17 0%, #B85C38 50%, #1E1B17 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientShimmer 5s ease infinite;
+}
+
+/* Footer Subtle Linework Drift Animation */
+@keyframes footerLineworkDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-footer-drift {
+  animation: footerLineworkDrift 38s linear infinite;
+  will-change: transform;
+}
+
+/* Upward Lift Motion Animation for Footer Back to Top Arrow */
+@keyframes arrowLiftPulse {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+.animate-arrow-lift {
+  animation: arrowLiftPulse 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-footer-drift,
+  .animate-arrow-lift,
+  .animate-soundwave-1,
+  .animate-soundwave-2,
+  .animate-soundwave-3,
+  .animate-mic-active,
+  .animate-mic-shake {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Dynamic Mic Icon Animations & Soundwave Visualizer */
+@keyframes micSoundwaveScale {
+  0%, 100% {
+    transform: scaleY(0.35);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes micAuraPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    box-shadow: 0 0 0 0 rgba(184, 92, 56, 0.4);
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+    box-shadow: 0 0 12px 3px rgba(184, 92, 56, 0.55);
+  }
+}
+
+@keyframes micShakeAlert {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-3px); }
+  40%, 80% { transform: translateX(3px); }
+}
+
+.animate-soundwave-1 {
+  animation: micSoundwaveScale 0.75s ease-in-out infinite 0s;
+  transform-origin: bottom;
+  will-change: transform, opacity;
+}
+
+.animate-soundwave-2 {
+  animation: micSoundwaveScale 0.75s ease-in-out infinite 0.2s;
+  transform-origin: bottom;
+  will-change: transform, opacity;
+}
+
+.animate-soundwave-3 {
+  animation: micSoundwaveScale 0.75s ease-in-out infinite 0.4s;
+  transform-origin: bottom;
+  will-change: transform, opacity;
+}
+
+.animate-mic-active {
+  animation: micAuraPulse 1.8s ease-in-out infinite;
+  will-change: transform, opacity, box-shadow;
+}
+
+.animate-mic-shake {
+  animation: micShakeAlert 0.45s ease-in-out 2;
+}
+
+/* Scoped Print Fallback Rules */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #1e1b17 !important;
+  }
+  nav,
+  header,
+  footer,
+  .no-print,
+  button,
+  [role="button"] {
+    display: none !important;
+  }
+}

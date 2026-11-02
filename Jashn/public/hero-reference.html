@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens: indigo #2E2A7A, marigold #F5A524, lilac #A9A5EE, ink #14161C, muted #5B6070 ===== */
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#14161C;background:#F7F7FA}
+.btn{min-height:44px;padding:0 18px;border-radius:12px;border:0;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.hero{position:relative;overflow:hidden;background:#2E2A7A;color:#fff}
+.bunt{position:absolute;top:0;left:0;right:0;height:56px}
+.bunt:before{content:"";position:absolute;top:8px;left:-2%;right:-2%;height:2px;background:#A9A5EE}
+.flags{display:flex;justify-content:space-between;padding-top:8px}
+.flags i{width:34px;height:44px;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;animation:sway 3.2s ease-in-out infinite alternate}
+.flags i:nth-child(4n+1){background:#F5A524}.flags i:nth-child(4n+2){background:#fff}.flags i:nth-child(4n+3){background:#A9A5EE}.flags i:nth-child(4n){background:#FFD98A}
+.flags i:nth-child(odd){animation-delay:-1.2s}.flags i:nth-child(3n){animation-delay:-2.1s}
+@keyframes sway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.bub{position:absolute;bottom:-40px;border-radius:50%;background:rgba(245,165,36,.45);animation:rise linear infinite}
+.bub:nth-of-type(even){background:rgba(255,255,255,.22)}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-480px)}}
+.heroin{position:relative;max-width:1280px;margin:0 auto;padding:88px 32px 60px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.hl{font-size:48px;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:14px 0 12px}
+.win{display:inline-block;height:1.2em;overflow:hidden;vertical-align:bottom;color:#F5A524}
+.words{display:block;animation:cyc 12s ease-in-out infinite}
+.words span{display:block;height:1.2em}
+@keyframes cyc{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-1.2em)}50%,70%{transform:translateY(-2.4em)}75%,95%{transform:translateY(-3.6em)}100%{transform:translateY(-4.8em)}}
+.eb{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C9C6F0}
+.pb{min-height:44px;padding:0 18px;border-radius:99px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.pb.sel{background:#fff;color:#2E2A7A;border-color:#fff}
+.gold{background:#F5A524;color:#14161C}
+.ghost{background:transparent;border:1px solid rgba(255,255,255,.55);color:#fff}
+.orbwrap{position:relative;width:480px;height:440px;max-width:100%;margin:0 auto}
+.orbsvg{position:absolute;inset:0}
+.ring{stroke-dashoffset:441;animation:ring 12s ease-in-out infinite}
+@keyframes ring{0%,28%{stroke-dashoffset:441}36%,61%{stroke-dashoffset:158}69%,94%{stroke-dashoffset:339}100%{stroke-dashoffset:441}}
+@keyframes csv{0%{opacity:0}3%,30%{opacity:1}36%,100%{opacity:0}}
+@keyframes hl{0%{transform:scale(1);box-shadow:0 10px 24px rgba(10,8,50,.35)}3%,30%{transform:scale(1.08);box-shadow:0 0 0 3px #F5A524,0 10px 24px rgba(10,8,50,.35)}36%,100%{transform:scale(1);box-shadow:0 10px 24px rgba(10,8,50,.35)}}
+.ctr{position:absolute;left:165px;top:145px;width:150px;height:150px;border-radius:50%;background:#fff;color:#2E2A7A}
+.cs{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;animation:csv 12s linear infinite}
+.cs2{animation-delay:4s}.cs3{animation-delay:8s}
+.cs small{font-size:11px;font-weight:600;color:#5B6070}.cs b{font-size:24px;font-weight:800;line-height:1.2}
+.cs strong{font-size:13px;color:#14161C;margin-top:4px}.cs em{font-style:normal;font-size:11px;color:#5B6070}
+.arm{position:absolute;left:240px;top:220px;width:0;height:0;animation:orb 30s linear infinite}
+.pos{position:absolute;left:170px;top:0;transform:translate(-50%,-50%)}
+.cw{animation:orbr 30s linear infinite}
+.a2,.a2 .cw{animation-delay:-10s}.a3,.a3 .cw{animation-delay:-20s}
+@keyframes orb{to{transform:rotate(360deg)}}@keyframes orbr{to{transform:rotate(-360deg)}}
+.orbwrap:hover *{animation-play-state:paused}
+.chipo{display:flex;align-items:center;gap:10px;background:#fff;color:#14161C;border-radius:99px;padding:8px 18px 8px 8px;box-shadow:0 10px 24px rgba(10,8,50,.35);white-space:nowrap;animation:hl 12s ease-in-out infinite}
+.a2 .chipo{animation-delay:4s}.a3 .chipo{animation-delay:8s}
+.chipo b{display:block;font-size:14px}.chipo small{display:block;font-size:12px;color:#5B6070}
+.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none}
+.mq{background:#F5A524;color:#14161C;overflow:hidden;font-weight:700;font-size:14px;min-height:44px;display:flex;align-items:center}
+.mqt{display:flex;white-space:nowrap;animation:mq 36s linear infinite}
+.mqt span{padding:0 22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.a1{transform:rotate(-90deg)}.a1 .cw{transform:rotate(90deg)}.a2{transform:rotate(30deg)}.a2 .cw{transform:rotate(-30deg)}.a3{transform:rotate(150deg)}.a3 .cw{transform:rotate(-150deg)}.cs1{opacity:1}}
+@media (max-width:980px){.heroin{grid-template-columns:minmax(0,1fr)}.hl{font-size:36px}.orbwrap{transform:scale(.72);transform-origin:top center;margin-bottom:-120px}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn:focus-visible,.pb:focus-visible{outline:3px solid #fff;outline-offset:3px}.gold:focus-visible{outline-color:#FFD98A}
+</style>
+</head>
+<body>
+<section class="hero" aria-label="Welcome to Utsav">
+<div class="bunt" aria-hidden="true"><div class="flags"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<b class="bub" aria-hidden="true" style="left:5%;width:16px;height:16px;animation-duration:11s;animation-delay:-3s"></b>
+<b class="bub" aria-hidden="true" style="left:17%;width:28px;height:28px;animation-duration:15s;animation-delay:-9s"></b>
+<b class="bub" aria-hidden="true" style="left:31%;width:12px;height:12px;animation-duration:10s;animation-delay:-1s"></b>
+<b class="bub" aria-hidden="true" style="left:46%;width:22px;height:22px;animation-duration:13s;animation-delay:-6s"></b>
+<b class="bub" aria-hidden="true" style="left:58%;width:14px;height:14px;animation-duration:12s;animation-delay:-8s"></b>
+<b class="bub" aria-hidden="true" style="left:71%;width:30px;height:30px;animation-duration:16s;animation-delay:-2s"></b>
+<b class="bub" aria-hidden="true" style="left:84%;width:18px;height:18px;animation-duration:11s;animation-delay:-5s"></b>
+<b class="bub" aria-hidden="true" style="left:94%;width:12px;height:12px;animation-duration:14s;animation-delay:-10s"></b>
+<div class="heroin">
+<div>
+<span class="eb">One planner for every celebration</span>
+<p class="hl"><span class="sr-only">Plan your next celebration</span><span aria-hidden="true">Plan your next <span class="win"><span class="words"><span>wedding</span><span>birthday</span><span>festival</span><span>reunion</span><span>wedding</span></span></span></span></p>
+<p style="margin:0 0 22px;font-size:17px;line-height:1.55;color:#E4E2FA;max-width:520px">Budget, timeline, vendors and ideas in one place. Private in your browser, and in your language.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px"><button class="pb sel">Wedding</button><button class="pb">Birthday</button><button class="pb">Community</button><button class="pb">Festival</button></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn gold">Start a new plan</button><button class="btn ghost">Try a sample plan</button></div>
+</div>
+<div class="orbwrap" aria-hidden="true">
+<svg class="orbsvg" viewBox="0 0 480 440" fill="none"><circle cx="240" cy="220" r="170" stroke="rgba(255,255,255,.3)" stroke-width="1.5" stroke-dasharray="3 9"></circle><circle cx="240" cy="220" r="118" stroke="rgba(255,255,255,.14)" stroke-width="1.5"></circle><circle cx="240" cy="220" r="90" stroke="rgba(255,255,255,.22)" stroke-width="10"></circle><circle class="ring" cx="240" cy="220" r="90" stroke="#F5A524" stroke-width="10" stroke-linecap="round" stroke-dasharray="565" transform="rotate(-90 240 220)"></circle></svg>
+<div class="ctr"><div class="cs cs1"><small>Total budget</small><b>₹18,00,000</b><strong>Wedding</strong><em>22% planned</em></div><div class="cs cs2"><small>Total budget</small><b>₹40,000</b><strong>Birthday</strong><em>72% planned</em></div><div class="cs cs3"><small>Total budget</small><b>₹25,000</b><strong>Baby shower</strong><em>40% planned</em></div></div>
+<div class="arm a1"><div class="pos"><div class="cw"><div class="chipo"><span class="av" style="background:#2E2A7A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="9" cy="14" r="5"></circle><circle cx="15" cy="14" r="5"></circle></svg></span><span><b>Wedding</b><small>220 guests</small></span></div></div></div></div>
+<div class="arm a2"><div class="pos"><div class="cw"><div class="chipo"><span class="av" style="background:#F5A524"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14161C" stroke-width="2"><rect x="4" y="12" width="16" height="8" rx="2"></rect><path d="M12 4v5"></path></svg></span><span><b>Birthday</b><small>40 guests</small></span></div></div></div></div>
+<div class="arm a3"><div class="pos"><div class="cw"><div class="chipo"><span class="av" style="background:#B83280"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.6-7 10-7 10z"></path></svg></span><span><b>Baby shower</b><small>25 guests</small></span></div></div></div></div>
+</div>
+</div>
+</section>
+<div class="mq" aria-hidden="true"><div class="mqt">
+<span>Weddings</span><span>·</span><span>Birthdays</span><span>·</span><span>Baby showers</span><span>·</span><span>Anniversaries</span><span>·</span><span>Society festivals</span><span>·</span><span>Community festivals</span><span>·</span><span>Reunions</span><span>·</span><span>Diwali meets</span><span>·</span>
+<span>Weddings</span><span>·</span><span>Birthdays</span><span>·</span><span>Baby showers</span><span>·</span><span>Anniversaries</span><span>·</span><span>Society festivals</span><span>·</span><span>Community festivals</span><span>·</span><span>Reunions</span><span>·</span><span>Diwali meets</span><span>·</span>
+<span>Weddings</span><span>·</span><span>Birthdays</span><span>·</span><span>Baby showers</span><span>·</span><span>Anniversaries</span><span>·</span><span>Society festivals</span><span>·</span><span>Community festivals</span><span>·</span><span>Reunions</span><span>·</span><span>Diwali meets</span><span>·</span>
+<span>Weddings</span><span>·</span><span>Birthdays</span><span>·</span><span>Baby showers</span><span>·</span><span>Anniversaries</span><span>·</span><span>Society festivals</span><span>·</span><span>Community festivals</span><span>·</span><span>Reunions</span><span>·</span><span>Diwali meets</span><span>·</span>
+</div></div>
+</body>
+</html>

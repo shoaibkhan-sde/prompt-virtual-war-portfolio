@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #F7F7FA;
+  --bg-card: #FFFFFF;
+  --text-primary: #14161C;
+  --text-muted: #5B6070;
+  --border-subtle: #E6E7EE;
+}
+
+.dark {
+  --bg-primary: #14161C;
+  --bg-card: #1C1F2B;
+  --text-primary: #FFFFFF;
+  --text-muted: #C9CCD8;
+  --border-subtle: #2C3040;
+}
+
+html,
+body {
+  margin: 0;
+  overflow-x: clip;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Festive flags garland sway */
+.flags i {
+  width: 34px;
+  height: 44px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: 50% 0;
+  animation: sway 3.2s ease-in-out infinite alternate;
+}
+.flags i:nth-child(4n + 1) { background: #F5A524; }
+.flags i:nth-child(4n + 2) { background: #FFFFFF; }
+.flags i:nth-child(4n + 3) { background: #A9A5EE; }
+.flags i:nth-child(4n) { background: #FFD98A; }
+.flags i:nth-child(odd) { animation-delay: -1.2s; }
+.flags i:nth-child(3n) { animation-delay: -2.1s; }
+
+@keyframes sway {
+  from { transform: rotate(-7deg); }
+  to { transform: rotate(7deg); }
+}
+
+/* Floating celebration bubbles */
+.bub {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  background: rgba(245, 165, 36, 0.45);
+  animation: rise linear infinite;
+}
+.bub:nth-of-type(even) {
+  background: rgba(255, 255, 255, 0.22);
+}
+@keyframes rise {
+  from { transform: translateY(0); }
+  to { transform: translateY(-480px); }
+}
+
+/* Rotating headline */
+@keyframes cyc {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-1.2em); }
+  50%, 70% { transform: translateY(-2.4em); }
+  75%, 95% { transform: translateY(-3.6em); }
+  100% { transform: translateY(-4.8em); }
+}
+
+/* Orbital animation */
+@keyframes orb {
+  to { transform: rotate(360deg); }
+}
+@keyframes orbr {
+  to { transform: rotate(-360deg); }
+}
+.orbwrap:hover .arm,
+.orbwrap:hover .cw {
+  animation-play-state: paused;
+}
+
+/* Marquee continuous scroll */
+@keyframes mq {
+  to { transform: translateX(-50%); }
+}
+
+/* Circular countdown ring */
+.ring {
+  stroke-dashoffset: 170;
+  animation: ring 6s ease-in-out infinite;
+}
+@keyframes ring {
+  0% { stroke-dashoffset: 565; }
+  60%, 100% { stroke-dashoffset: 170; }
+}
+
+/* Dynamic AI Capsule floating & aura animation */
+@keyframes aiCapsuleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes aiAuraPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 165, 36, 0.45), 0 10px 25px -5px rgba(46, 42, 122, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(245, 165, 36, 0), 0 15px 30px -5px rgba(245, 165, 36, 0.5);
+  }
+}
+
+@keyframes aiSparkleTwinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+.ai-capsule-dynamic {
+  animation: aiCapsuleFloat 3s ease-in-out infinite, aiAuraPulse 2.5s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-capsule-dynamic,
+  .ai-sparkle-dot {
+    animation: none !important;
+  }
+}
+
+
+/* Print optimizations for PDF export */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  footer, .mq, .hero, .btn {
+    display: none !important;
+  }
+  .card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+}
+
