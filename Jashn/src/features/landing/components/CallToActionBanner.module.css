@@ -1,0 +1,85 @@
+.heading {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Fluid live iridescent gradient text flow */
+.shimmerText {
+  background: linear-gradient(
+    90deg,
+    #F5A524 0%,
+    #FFD98A 25%,
+    #A9A5EE 50%,
+    #F5A524 75%,
+    #FFD98A 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerMove 4s linear infinite;
+  display: inline-block;
+}
+
+/* Animated accent on "three simple steps" with a living glowing underline */
+.stepHighlight {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #FFD98A 0%,
+    #F5A524 35%,
+    #FFDF9E 70%,
+    #FFD98A 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerMove 3.5s linear infinite;
+}
+
+.stepHighlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #F5A524, #FFD98A, transparent);
+  border-radius: 99px;
+  animation: underlineGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes underlineGlow {
+  0% {
+    opacity: 0.35;
+    transform: scaleX(0.8);
+    filter: drop-shadow(0 0 2px rgba(245, 165, 36, 0.2));
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+    filter: drop-shadow(0 0 8px rgba(245, 165, 36, 0.7));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmerText,
+  .stepHighlight,
+  .stepHighlight::after {
+    animation: none !important;
+  }
+}
